@@ -1,0 +1,38 @@
+plugins {
+    `java-gradle-plugin`
+    `maven-publish`
+    kotlin("jvm") version "1.9.20"
+    id("com.diffplug.spotless") version("6.12.0")
+}
+
+group = "io.github.redstonneur1256"
+version = "0.1"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("net.fabricmc:access-widener:2.1.0")
+    implementation("org.ow2.asm:asm-commons:9.4")
+}
+
+spotless {
+    kotlin {
+        licenseHeaderFile(file("HEADER.txt"))
+    }
+}
+
+gradlePlugin {
+    website = "https://github.com/Redstonneur1256/GradleAccessWidener"
+    vcsUrl = "https://github.com/Redstonneur1256/GradleAccessWidener"
+
+    plugins {
+        create("GradlewAccessWidener") {
+            id = "io.github.redstonneur1256.gradle-access-widener"
+            implementationClass = "io.github.redstonneur1256.gaw.GradleAccessWidener"
+            displayName = "GradlewAccessWidener"
+            description = "Adds support for Fabric's access wideners to non-Minecraft projects."
+        }
+    }
+}
