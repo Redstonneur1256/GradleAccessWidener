@@ -2,7 +2,8 @@ plugins {
     `java-gradle-plugin`
     `maven-publish`
     kotlin("jvm") version "1.9.20"
-    id("com.diffplug.spotless") version("6.12.0")
+    id("com.diffplug.spotless") version "6.12.0"
+    id("com.gradle.plugin-publish") version "1.2.1"
 }
 
 group = "io.github.redstonneur1256"
@@ -33,6 +34,7 @@ gradlePlugin {
             implementationClass = "io.github.redstonneur1256.gaw.GradleAccessWidener"
             displayName = "GradlewAccessWidener"
             description = "Adds support for Fabric's access wideners to non-Minecraft projects."
+            tags = listOf("java", "fabricmc")
         }
     }
 }
