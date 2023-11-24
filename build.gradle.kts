@@ -7,7 +7,11 @@ plugins {
 }
 
 group = "io.github.redstonneur1256"
-version = "0.1"
+version = "0.2"
+
+kotlin {
+    jvmToolchain(8)
+}
 
 repositories {
     mavenCentral()
@@ -25,8 +29,8 @@ spotless {
 }
 
 gradlePlugin {
-    website = "https://github.com/Redstonneur1256/GradleAccessWidener"
-    vcsUrl = "https://github.com/Redstonneur1256/GradleAccessWidener"
+    website.set("https://github.com/Redstonneur1256/GradleAccessWidener")
+    vcsUrl.set("https://github.com/Redstonneur1256/GradleAccessWidener")
 
     plugins {
         create("GradlewAccessWidener") {
@@ -34,7 +38,7 @@ gradlePlugin {
             implementationClass = "io.github.redstonneur1256.gaw.GradleAccessWidener"
             displayName = "GradlewAccessWidener"
             description = "Adds support for Fabric's access wideners to non-Minecraft projects."
-            tags = listOf("java", "fabricmc")
+            tags.set(listOf("java", "fabricmc"))
         }
     }
 }
