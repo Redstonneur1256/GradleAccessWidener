@@ -33,7 +33,7 @@ class GradleAccessWidener : Plugin<Project> {
         val extension = project.extensions.create("accessWidener", AccessWidenerExtension::class.java)
         extension.paths.convention(project.files())
 
-        project.beforeEvaluate {
+        project.afterEvaluate {
             val widened = Attribute.of("widened", Boolean::class.javaObjectType)
 
             project.dependencies.attributesSchema.attribute(widened)
