@@ -4,10 +4,10 @@ Gradle support for [Fabric's access wideners](https://fabricmc.net/wiki/tutorial
 
 ### Usage:
 
-- Apply plugin
+- Apply plugin [latest version](https://plugins.gradle.org/plugin/io.github.redstonneur1256.gradle-access-widener)
   ```kotlin
   plugins {
-      id("io.github.redstonneur1256.gradle-access-widener") version "0.1"
+      id("io.github.redstonneur1256.gradle-access-widener") version "<version>"
   }
   ```
 - Configure the path to your access widener file(s)

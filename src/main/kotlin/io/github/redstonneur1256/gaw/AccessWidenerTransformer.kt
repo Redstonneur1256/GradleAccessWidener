@@ -39,6 +39,7 @@ import org.objectweb.asm.ClassWriter
 import org.objectweb.asm.Opcodes
 import java.util.jar.JarInputStream
 import java.util.jar.JarOutputStream
+import java.util.zip.ZipEntry
 
 abstract class AccessWidenerTransformer : TransformAction<AccessWidenerTransformer.Parameters> {
 
@@ -63,7 +64,7 @@ abstract class AccessWidenerTransformer : TransformAction<AccessWidenerTransform
         try {
             var entry = inputJar.nextEntry
             while (entry != null) {
-                outputJar.putNextEntry(entry)
+                outputJar.putNextEntry(ZipEntry(entry.name))
 
                 if (targets.contains(entry.name)) {
                     outputJar.write(transformClass(widener, inputJar.readBytes()))

@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "io.github.redstonneur1256"
-version = "0.3"
+version = "0.3.1"
 
 kotlin {
     jvmToolchain(8)
